@@ -1,0 +1,125 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ff93c84b1e8, pid=38188, tid=33492
+#
+# JRE version: Java(TM) SE Runtime Environment (21.0.2+13) (build 21.0.2+13-LTS-58)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (21.0.2+13-LTS-58, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# Problematic frame:
+# C  [ntdll.dll+0x5b1e8]
+#
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:MaxMetaspaceSize=512m --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.prefs/java.util.prefs=ALL-UNNAMED --add-opens=java.base/java.nio.charset=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED -Xmx2048m -Dfile.encoding=UTF-8 -Duser.country=BR -Duser.language=pt -Duser.variant -javaagent:C:\Users\cezaralves\.gradle\wrapper\dists\gradle-8.3-all\6en3ugtfdg5xnpx44z4qbwgas\gradle-8.3\lib\agents\gradle-instrumentation-agent-8.3.jar org.gradle.launcher.daemon.bootstrap.GradleDaemon 8.3
+
+Host: 12th Gen Intel(R) Core(TM) i7-12700H, 20 cores, 15G,  Windows 11 , 64 bit Build 22621 (10.0.22621.2428)
+Time: Sun Mar 24 18:27:50 2024 Hora Padrão Brasil Central elapsed time: 69.754015 seconds (0d 0h 1m 9s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001fd244f3b50):  JavaThread "WorkerExecutor Queue"        [_thread_in_vm, id=33492, stack(0x000000dfe5d00000,0x000000dfe5e00000) (1024K)]
+
+Stack: [0x000000dfe5d00000,0x000000dfe5e00000],  sp=0x000000dfe5dfa450,  free space=1001k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [ntdll.dll+0x5b1e8]
+V  [jvm.dll+0x256b07]
+V  [jvm.dll+0x256631]
+V  [jvm.dll+0x25670d]
+V  [jvm.dll+0x245877]
+V  [jvm.dll+0x245ea0]
+V  [jvm.dll+0x3d50fc]
+V  [jvm.dll+0x3d4eed]
+C  0x000001fd162dbd68
+
+The last pc belongs to method entry point (kind = zerolocals) (printed below).
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.io.ObjectStreamClass.<init>()V+0 java.base@21.0.2
+j  java.io.ObjectInputStream.readNonProxyDesc(Z)Ljava/io/ObjectStreamClass;+24 java.base@21.0.2
+J 26766 c1 java.io.ObjectInputStream.readClassDesc(Z)Ljava/io/ObjectStreamClass; java.base@21.0.2 (121 bytes) @ 0x000001fd0fa6293c [0x000001fd0fa61ca0+0x0000000000000c9c]
+j  java.io.ObjectInputStream.readNonProxyDesc(Z)Ljava/io/ObjectStreamClass;+183 java.base@21.0.2
+J 26766 c1 java.io.ObjectInputStream.readClassDesc(Z)Ljava/io/ObjectStreamClass; java.base@21.0.2 (121 bytes) @ 0x000001fd0fa6293c [0x000001fd0fa61ca0+0x0000000000000c9c]
+J 26767 c1 java.io.ObjectInputStream.readOrdinaryObject(Z)Ljava/lang/Object; java.base@21.0.2 (373 bytes) @ 0x000001fd1019f4fc [0x000001fd1019f380+0x000000000000017c]
+J 26699 c1 java.io.ObjectInputStream.readObject0(Ljava/lang/Class;Z)Ljava/lang/Object; java.base@21.0.2 (681 bytes) @ 0x000001fd100adc94 [0x000001fd100ac920+0x0000000000001374]
+J 26762 c1 java.io.ObjectInputStream$FieldValues.<init>(Ljava/io/ObjectInputStream;Ljava/io/ObjectStreamClass;Z)V java.base@21.0.2 (217 bytes) @ 0x000001fd10677f2c [0x000001fd10677880+0x00000000000006ac]
+J 26768 c1 java.io.ObjectInputStream.readSerialData(Ljava/lang/Object;Ljava/io/ObjectStreamClass;)V java.base@21.0.2 (474 bytes) @ 0x000001fd1077657c [0x000001fd107756c0+0x0000000000000ebc]
+J 26767 c1 java.io.ObjectInputStream.readOrdinaryObject(Z)Ljava/lang/Object; java.base@21.0.2 (373 bytes) @ 0x000001fd1019fe04 [0x000001fd1019f380+0x0000000000000a84]
+J 26699 c1 java.io.ObjectInputStream.readObject0(Ljava/lang/Class;Z)Ljava/lang/Object; java.base@21.0.2 (681 bytes) @ 0x000001fd100adc94 [0x000001fd100ac920+0x0000000000001374]
+j  java.io.ObjectInputStream.readObject(Ljava/lang/Class;)Ljava/lang/Object;+42 java.base@21.0.2
+j  java.io.ObjectInputStream.readObject()Ljava/lang/Object;+3 java.base@21.0.2
+j  sun.rmi.server.UnicastRef.unmarshalValue(Ljava/lang/Class;Ljava/io/ObjectInput;)Ljava/lang/Object;+187 java.rmi@21.0.2
+j  sun.rmi.server.UnicastRef.invoke(Ljava/rmi/Remote;Ljava/lang/reflect/Method;[Ljava/lang/Object;J)Ljava/lang/Object;+306 java.rmi@21.0.2
+j  java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;+69 java.rmi@21.0.2
+j  java.rmi.server.RemoteObjectInvocationHandler.invoke(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;+80 java.rmi@21.0.2
+j  jdk.proxy5.$Proxy147.compile(I[Ljava/lang/String;Lorg/jetbrains/kotlin/daemon/common/CompilationOptions;Lorg/jetbrains/kotlin/daemon/common/CompilerServicesFacadeBase;Lorg/jetbrains/kotlin/daemon/common/CompilationResults;)Lorg/jetbrains/kotlin/daemon/common/CompileService$CallResult;+37 jdk.proxy5
+j  org.jetbrains.kotlin.compilerRunner.GradleKotlinCompilerWork.incrementalCompilationWithDaemon(Lorg/jetbrains/kotlin/daemon/common/CompileService;ILorg/jetbrains/kotlin/daemon/common/CompileService$TargetPlatform;Lorg/jetbrains/kotlin/gradle/logging/GradleBufferingMessageCollector;)Lorg/jetbrains/kotlin/daemon/common/CompileService$CallResult;+469
+j  org.jetbrains.kotlin.compilerRunner.GradleKotlinCompilerWork.compileWithDaemon(Lorg/jetbrains/kotlin/cli/common/messages/MessageCollector;)Lorg/jetbrains/kotlin/cli/common/ExitCode;+559
+j  org.jetbrains.kotlin.compilerRunner.GradleKotlinCompilerWork.compileWithDaemonOrFallbackImpl(Lorg/jetbrains/kotlin/cli/common/messages/MessageCollector;)Lkotlin/Pair;+313
+j  org.jetbrains.kotlin.compilerRunner.GradleKotlinCompilerWork.run()V+22
+j  org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction.execute()V+136
+j  org.gradle.workers.internal.DefaultWorkerServer.execute(Lorg/gradle/workers/internal/SimpleActionExecutionSpec;)Lorg/gradle/workers/internal/DefaultWorkResult;+128
+j  org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create()Lorg/gradle/workers/internal/DefaultWorkResult;+29
+j  org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create()Ljava/lang/Object;+1
+j  org.gradle.internal.classloader.ClassLoaderUtils.executeInClassloader(Ljava/lang/ClassLoader;Lorg/gradle/internal/Factory;)Ljava/lang/Object;+15
+j  org.gradle.workers.internal.NoIsolationWorkerFactory$1.lambda$execute$0(Ljava/lang/ClassLoader;Lorg/gradle/workers/WorkerExecutor;Lorg/gradle/workers/internal/IsolatedParametersActionExecutionSpec;)Lorg/gradle/workers/internal/DefaultWorkResult;+10
+j  org.gradle.workers.internal.NoIsolationWorkerFactory$1$$Lambda+0x000001fd272805f0.execute(Lorg/gradle/workers/internal/IsolatedParametersActionExecutionSpec;)Lorg/gradle/workers/internal/DefaultWorkResult;+13
+j  org.gradle.workers.internal.AbstractWorker$1.call(Lorg/gradle/internal/operations/BuildOperationContext;)Lorg/gradle/workers/internal/DefaultWorkResult;+8
+j  org.gradle.workers.internal.AbstractWorker$1.call(Lorg/gradle/internal/operations/BuildOperationContext;)Ljava/lang/Object;+2
+J 12548 c1 org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(Lorg/gradle/internal/operations/BuildOperation;Lorg/gradle/internal/operations/BuildOperationContext;)V (10 bytes) @ 0x000001fd1022a84c [0x000001fd1022a5e0+0x000000000000026c]
+J 19314 c1 org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(Lorg/gradle/internal/operations/BuildOperationDescriptor;Lorg/gradle/internal/operations/BuildOperationState;Lorg/gradle/internal/operations/BuildOperationState;Lorg/gradle/internal/operations/DefaultBuildOperationRunner$ReadableBuildOperationContext;Lorg/gradle/internal/operations/DefaultBuildOperationRunner$BuildOperationExecutionListener;)Lorg/gradle/internal/operations/BuildOperation; (110 bytes) @ 0x000001fd10e30644 [0x000001fd10e30440+0x0000000000000204]
+J 19233 c1 org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(Lorg/gradle/internal/operations/BuildOperationDescriptor;Lorg/gradle/internal/operations/BuildOperationState;Lorg/gradle/internal/operations/BuildOperationState;Lorg/gradle/internal/operations/DefaultBuildOperationRunner$ReadableBuildOperationContext;Lorg/gradle/internal/operations/DefaultBuildOperationRunner$BuildOperationExecutionListener;)Ljava/lang/Object; (12 bytes) @ 0x000001fd10e1b13c [0x000001fd10e1b0c0+0x000000000000007c]
+J 19634 c1 org.gradle.internal.operations.DefaultBuildOperationRunner.execute(Lorg/gradle/internal/operations/BuildOperationDescriptor$Builder;Lorg/gradle/internal/operations/BuildOperationState;Lorg/gradle/internal/operations/DefaultBuildOperationRunner$BuildOperationExecution;)Ljava/lang/Object; (147 bytes) @ 0x000001fd10efe354 [0x000001fd10efd780+0x0000000000000bd4]
+J 19214 c1 org.gradle.internal.operations.DefaultBuildOperationRunner.execute(Lorg/gradle/internal/operations/BuildOperation;Lorg/gradle/internal/operations/BuildOperationWorker;Lorg/gradle/internal/operations/BuildOperationState;)V (23 bytes) @ 0x000001fd10e06894 [0x000001fd10e065e0+0x00000000000002b4]
+J 23091 c1 org.gradle.internal.operations.DefaultBuildOperationRunner.call(Lorg/gradle/internal/operations/CallableBuildOperation;)Ljava/lang/Object; (24 bytes) @ 0x000001fd1135e4e4 [0x000001fd1135e020+0x00000000000004c4]
+J 12544 c1 org.gradle.internal.operations.DefaultBuildOperationExecutor.call(Lorg/gradle/internal/operations/CallableBuildOperation;)Ljava/lang/Object; (11 bytes) @ 0x000001fd10228ecc [0x000001fd10228dc0+0x000000000000010c]
+j  org.gradle.workers.internal.AbstractWorker.executeWrappedInBuildOperation(Lorg/gradle/workers/internal/IsolatedParametersActionExecutionSpec;Lorg/gradle/internal/operations/BuildOperationRef;Lorg/gradle/workers/internal/AbstractWorker$Work;)Lorg/gradle/workers/internal/DefaultWorkResult;+15
+j  org.gradle.workers.internal.NoIsolationWorkerFactory$1.execute(Lorg/gradle/workers/internal/IsolatedParametersActionExecutionSpec;Lorg/gradle/internal/operations/BuildOperationRef;)Lorg/gradle/workers/internal/DefaultWorkResult;+17
+j  org.gradle.workers.internal.DefaultWorkerExecutor.lambda$submitWork$0(Lorg/gradle/workers/internal/WorkerFactory;Lorg/gradle/workers/internal/WorkerRequirement;Lorg/gradle/workers/internal/IsolatedParametersActionExecutionSpec;Lorg/gradle/internal/operations/BuildOperationRef;)Lorg/gradle/workers/internal/DefaultWorkResult;+13
+j  org.gradle.workers.internal.DefaultWorkerExecutor$$Lambda+0x000001fd2727b800.call()Ljava/lang/Object;+16
+J 6402 c1 java.util.concurrent.FutureTask.run()V java.base@21.0.2 (123 bytes) @ 0x000001fd0f9e114c [0x000001fd0f9e09c0+0x000000000000078c]
+j  org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runExecution(Lorg/gradle/internal/work/ConditionalExecution;)V+6
+j  org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.access$700(Lorg/gradle/internal/work/DefaultConditionalExecutionQueue$ExecutionRunner;Lorg/gradle/internal/work/ConditionalExecution;)V+2
+j  org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner$1.run()V+14
+J 23929 c1 org.gradle.internal.Factories$1.create()Ljava/lang/Object; (11 bytes) @ 0x000001fd115104b4 [0x000001fd11510440+0x0000000000000074]
+J 20949 c1 org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(Ljava/util/Collection;Lorg/gradle/internal/Factory;)Ljava/lang/Object; (53 bytes) @ 0x000001fd1119b0e4 [0x000001fd1119ac60+0x0000000000000484]
+J 25624 c1 org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(Lorg/gradle/internal/Factory;)Ljava/lang/Object; (37 bytes) @ 0x000001fd1023f07c [0x000001fd1023eae0+0x000000000000059c]
+j  org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(Ljava/lang/Runnable;)V+5
+j  org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runBatch(Lorg/gradle/internal/work/ConditionalExecution;)V+16
+j  org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.run()V+11
+j  java.util.concurrent.Executors$RunnableAdapter.call()Ljava/lang/Object;+4 java.base@21.0.2
+J 6402 c1 java.util.concurrent.FutureTask.run()V java.base@21.0.2 (123 bytes) @ 0x000001fd0f9e114c [0x000001fd0f9e09c0+0x000000000000078c]
+J 20457 c2 org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(Ljava/lang/Runnable;)V (29 bytes) @ 0x000001fd176da294 [0x000001fd176da240+0x0000000000000054]
+J 9709 c1 org.gradle.internal.concurrent.AbstractManagedExecutor$1.run()V (57 bytes) @ 0x000001fd0fe05b6c [0x000001fd0fe059a0+0x00000000000001cc]
+J 18353 c1 java.util.concurrent.ThreadPoolExecutor.runWorker(Ljava/util/concurrent/ThreadPoolExecutor$Worker;)V java.base@21.0.2 (187 bytes) @ 0x000001fd10c3f2fc [0x000001fd10c3e940+0x00000000000009bc]
+J 19575 c1 java.util.concurrent.ThreadPoolExecutor$Worker.run()V java.base@21.0.2 (9 bytes) @ 0x000001fd10edf4cc [0x000001fd10edf440+0x000000000000008c]
+J 19571 c1 java.lang.Thread.run()V java.base@21.0.2 (23 bytes) @ 0x000001fd10edcbec [0x000001fd10edc9e0+0x000000000000020c]
+v  ~StubRoutines::call_stub 0x000001fd162d100d
+
+siginfo: EXCEPTION_ACCESS_VIOLATION (0xc0000005), reading address 0x000000dfd25ff600
+
+
+Registers:
+RAX=0x000000dfd25ff600, RBX=0x000001fd23e9be80, RCX=0x00007ff88a16b918, RDX=0x000000dfd25ff600
+RSP=0x000000dfe5dfa450, RBP=0x0000000000000000, RSI=0x000001fd4a508500, RDI=0x0000000000000000
+R8 =0x00007ff88a16b918, R9 =0x0000000000000083, R10=0x0000000000000001, R11=0x000000e8f4a254f9
+R12=0x000000dfe5dfcdc0, R13=0x00000000ffffffff, R14=0x0000000000000003, R15=0x0000000000006ba3
+RIP=0x00007ff93c84b1e8, EFLAGS=0x0000000000010206
+
+
+Register to memory mapping:
+
+RAX=0x000000dfd25ff600 is pointing into the stack for thread: 0x000001fd23eb8200
+RBX=0x000001fd23e9be80 points into unknown readable memory: 0x00007ff889eebeb0 | b0 be ee 89 f8 7f 00 00
+RCX=0x00007ff88a16b918 jvm.dll
+RDX=0x000000dfd25ff600 is pointing into the stack for thread: 0x000001fd23eb8200
+RSP=0x000000dfe5dfa450 is pointing into the stack for thread: 0x000001fd244f3b50
+RBP=0x0 is null
+RSI=0x000001fd4a508500 points into unknown readable memory: 0x000001fd44eac220 | 20 c2 ea 44 fd 01 00 00
+RDI=0x0 is null
+R8 =0x00007ff88a16b918 jvm.dll
+R9 =
