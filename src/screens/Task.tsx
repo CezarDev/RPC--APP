@@ -49,11 +49,19 @@ export default function Task(props) {
 
   const handleEdit = () => {
     //props.edit({ ...props, status });
+    setModalVisible(false);
 
     props.edit(props.id, isChecked, newName);
 
-    setModalVisible(false);
+   // setModalVisible(false);
   };
+
+  const handleDelete = () => {
+    console.log('deletando', props.id);
+    props.remove(props.id);
+
+    setModalVisible(false);
+  }
 
   return (
     <View
@@ -82,7 +90,7 @@ export default function Task(props) {
             <Pressable onPress={() => setModalVisible(!modalVisible)}>
               <Button title="Cancelar" onPress={() => setModalVisible(!modalVisible)} color={"grey"} />
               <Button title="Salvar" onPress={handleEdit} />
-              <TrashIcon remove={props.remove} id={props.id} />
+              <TrashIcon remove={handleDelete} id={props.id} />
             </Pressable>
             
           </View>

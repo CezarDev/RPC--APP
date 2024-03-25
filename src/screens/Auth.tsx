@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 
 export default function Auth() {
     
-const { signed } = useContext(AuthContext) as { signed: string };
+const { login } = useContext(AuthContext) as { login: any };
 
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
@@ -18,11 +18,10 @@ const handleLogin = () => {
         <View style={styles.container}>
 
                     <ImageBackground
-                    source={require('../../assets/task.gif')}
+                    source={require('../../assets/images/task.png')}
                     style={styles.background} />
 
         <Text style={styles.title}>Login</Text>
-        <Text> {signed}</Text>
         <TextInput
             style={styles.input}
             placeholder="Email"
@@ -38,9 +37,10 @@ const handleLogin = () => {
             value={password}
             onChangeText={setPassword}
         />
-        <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <TouchableOpacity style={styles.button} onPress={() => login(email, password)}>
             <Text style={styles.buttonText}>Entrar</Text>
         </TouchableOpacity>
+
         </View>
     );
     }
