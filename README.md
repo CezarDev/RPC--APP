@@ -1,3 +1,5 @@
+# Desenvolvido com Reac Native usando expo e emulando no Android  
+
 # npm i 
 # npm run android
 
